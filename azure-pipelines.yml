@@ -9,10 +9,8 @@ stages:
       displayName: Install NewMan
       continueOnError: true
       inputs:
-        script: | 
-          echo $AGENT_WORKFOLDER
-          sudo npm install -g newman
-        workingDirectory: $(System.DefaultWorkingDirectory)
+        script: 'sudo npm install -g newman'
+        workingDirectory: /home/hoanck/myagent/_work
     - task: CmdLine@2
       displayName: Run Newman Tests
       inputs:
