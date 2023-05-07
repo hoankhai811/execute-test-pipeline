@@ -9,7 +9,11 @@ stages:
       displayName: Install NewMan
       continueOnError: true
       inputs:
-        script: 'pip install newman'
+        script: | 
+          python -m venv antenv
+          source antenv/bin/activate
+          pip install setup
+          pip install newman
         workingDirectory: $(System.DefaultWorkingDirectory)
     - task: CmdLine@2
       displayName: Run Newman Tests
